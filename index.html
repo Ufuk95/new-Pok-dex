@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="apple-touch-icon" href="./img/favicon.png">
+    <link rel="icon" type="image/x-icon" href="./img/favicon.png">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/colors.css">
+    <link rel="stylesheet" href="./styles/dialog.css">
+    <link rel="stylesheet" href="./styles/pokecard.css">
+    <title>Pokedex</title>
+    <script src="./js/script.js"></script>
+    <script src="./js/pokedexStorage.js"></script>
+    <script src="./js/RenderMainPage.js"></script>
+    <script src="./js/PokemonCard.js"></script>
+    <script src="./js/ReturnHtml.js"></script>
+
+</head>
+
+<body id="body" onload="init()">
+    <div class="body">
+        <header>
+            <a onclick="init()" class="pokedex-text" href="#">
+                <img src="./img/pokedex.png" style="height: 100px;" alt="bend-images" border="0">
+            </a>
+            <div id="search-container">
+                <input placeholder="Find your pokemon..." type="text" id="search" required>
+                <button onclick="filterNames()" id="search-button">Go!</button>
+            </div>
+        </header>
+        <main>
+            <img class="pokeball" src="./img/headerpng.png" alt="pokeball">
+            <div id="content">
+                <!-- Mainpage -->
+            </div>
+            <div id="lessAndMoreButtons" class="loading-container">
+                <div id="loadLessButton" class="loadMoreButton" onclick="loadLessPokemons()" style="display: none">
+                    Back
+                </div>
+                <div id="pageContainer" style="display: none;">
+
+                </div>
+                <div class="loadMoreButton" onclick="loadMorePokemons()">
+                    More pokemons
+                </div>
+        </main>
+        <div id="dialog" class="dialog-bg" style="display: none" onclick="stopRender()">
+            <div id="dialogContainer" class="dialog">
+                <div onclick="doNotClose(event)">
+                    <svg class="spinner" width="120" height="120" viewBox="0 0 200 200"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="100" cy="100" r="95" fill="none" stroke="black" stroke-width="10" />
+                        <path d="M 100 5 A 95 95 0 0 1 195 100 L 5 100 A 95 95 0 0 1 100 5" fill="red" />
+                        <path d="M 100 195 A 95 95 0 0 1 5 100 L 195 100 A 95 95 0 0 1 100 195" fill="white" />
+                        <rect x="5" y="95" width="190" height="10" fill="black" />
+                        <circle cx="100" cy="100" r="25" fill="white" stroke="black" stroke-width="10" />
+                        <circle cx="100" cy="100" r="10" fill="black" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div id="pokeCard" class="dialog-bg2" style="display:none;" onclick="closePokemonCard()">
+            <div id="pokecardContainer" class="dialog2" onclick="doNotClose(event)">
+                <!-- Pokemoncard dialog -->
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
